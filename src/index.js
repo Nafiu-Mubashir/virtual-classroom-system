@@ -5,6 +5,11 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+<<<<<<< HEAD
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
+=======
+>>>>>>> 6a7e190a8eaed849954e7482da9377b8e6196ff5
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
