@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom'
 
 function Student_SignUp() {
@@ -63,6 +64,13 @@ function Student_SignUp() {
             </div>
         </>
     )
+=======
+
+function Student_SignUp() {
+  return (
+    <div>Student_SignUp</div>
+  )
+>>>>>>> 6a7e190a8eaed849954e7482da9377b8e6196ff5
 }
 
 export default Student_SignUp

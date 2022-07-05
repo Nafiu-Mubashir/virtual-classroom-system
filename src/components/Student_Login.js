@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom'
 
 
@@ -29,6 +30,12 @@ function Student_Login() {
         </div>
       </div>
     </>
+=======
+
+function Student_Login() {
+  return (
+    <div>Student_Login</div>
+>>>>>>> 6a7e190a8eaed849954e7482da9377b8e6196ff5
   )
 }
 
