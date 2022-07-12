@@ -19,7 +19,7 @@ export const mainListItems = (
             <ListItemIcon>
                 <LibraryAdd />
             </ListItemIcon>
-            <ListItemText primary="Course" />
+            <ListItemText primary="Courses" />
         </ListItemButton>
         <ListItemButton>
             <ListItemIcon>
