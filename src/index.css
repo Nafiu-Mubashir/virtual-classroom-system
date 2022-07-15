@@ -9,3 +9,7 @@ input:focus{
   box-shadow: 0 0 0px #0B5ED7 !important;
 }
 
+TextField{
+height: 10px;
+}
+
