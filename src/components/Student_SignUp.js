@@ -1,26 +1,66 @@
-import React from 'react'
-<<<<<<< HEAD
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useFormik } from "formik";
+import * as  yup from "yup";
+import "./Stud.css";
+import axios from "axios"
 
 function Student_SignUp() {
     const navigate = useNavigate();
+    const [status, setStatus] = useState([])
+    // const signUpUrl = "http://localhost:4006/student/signup";
+    // const practice = "https://jsonplaceholder.typicode.com/posts";
+    // console.log(signUpUrl);
+    // useEffect(() => {
+    //     axios.get(practice).then((res) => {
+    //         console.log(res);
+    //     })
+    // }, [])
+    
     const toSignIn = () => {
-      navigate("/")
+        navigate("/")
     }
+    const formik = useFormik({
+        initialValues: {
+            firstname: "",
+            lastname: "",
+            department: "",
+            gender: "",
+            email: "",
+            password: "",
+        },
+        onSubmit: (values) => {
+            // axios.post(signUpUrl, values).then((result) => {
+            //     setStatus(result.data.status)
+            //     console.log(result);
+            // }) 
+                formik.resetForm();
+            // navigate("/");
+        },
+        validationSchema: yup.object({
+            email: yup.string().required('This field is required'),
+            firstname: yup.string().required('This field is required'),
+            lastname: yup.string().required('This field is required'),
+            password: yup.string("Must contain at least a letter").min(8, "Must not be less than 8 characters").required('This field is required'),
+            cpassword: yup.string("Must contain at least a letter").required('This field is required'),
+            gender: yup.string().required(),
+        })
+    })
+
     return (
         <>
-            <div className="card p-5 w-50 shadow rounded m-auto mt-3">
+            <div className="card p-5 shadow rounded m-auto mt-3 p-md-2">
                 <div className="card-body">
-                    <form action="" className="form">
+                    <form action="" className="form" onSubmit={formik.handleSubmit}>
                         <h3 className='text-center text-primary mb-3'>Register Here</h3>
                         <div className="d-flex mb-2">
-                            <div className="form-group w-50">
+                            <div className="form-group w-50" id='you'>
                                 <label htmlFor="" className="form-label mt-2">First Name</label>
-                                <input type="text" className="form-control" />
+                                <input type="text" className={formik.errors.firstname ? "form-control my-2 is-invalid" : "form-control my-2"} name='firstname' onChange={formik.handleChange} value={formik.values.firstname} onBlur={formik.handleBlur}/>
                             </div>
-                            <div className="form-group w-50 ms-3">
+                            <div className="form-group w-50 ms-3" id='you'>
                                 <label htmlFor="" className="form-label mt-2">Last Name</label>
-                                <input type="text" className="form-control" />
+                                <input type="text" className={formik.errors.lastname ? "form-control my-2 is-invalid" : "form-control my-2"} name='lastname' onChange={formik.handleChange} value={formik.values.lastname} onBlur={formik.handleBlur} />
                             </div>
                         </div>
                         <div className="d-flex mb-2">
@@ -45,15 +85,17 @@ function Student_SignUp() {
                         </div>
                         <div className="form-group w-100 mb-2">
                             <label htmlFor="" className="form-label mt-2">Email Address</label>
-                            <input type="email" className="form-control" />
+                            <input type="email" className={formik.errors.email ? "form-control my-2 is-invalid" : "form-control my-2"} name='email' onChange={formik.handleChange} value={formik.values.email} onBlur={formik.handleBlur} />
                         </div>
                         <div className="form-group  w-100 mb-2">
                             <label htmlFor="" className="form-label mt-2">Password</label>
-                            <input type="password" className="form-control" />
+                            <input type="password" className={formik.errors.password ? "form-control my-2 is-invalid" : "form-control my-2"} name='password' onChange={formik.handleChange} value={formik.values.password}
+                                    onBlur={formik.handleBlur} />
                         </div>
                         <div className="form-group  w-100 mb-2">
                             <label htmlFor="" className="form-label mt-2">Confirm Password</label>
-                            <input type="password" className="form-control" />
+                            <input type="password" className={formik.errors.cpassword ? "form-control my-2 is-invalid" : "form-control my-2"} name='cpassword' onChange={formik.handleChange} value={formik.values.cpassword}
+                                    onBlur={formik.handleBlur}/>
                         </div>
                         <button className="btn btn-primary w-100 mt-2">Register</button>
                         <div className="mt-3 text-center">
@@ -64,13 +106,6 @@ function Student_SignUp() {
             </div>
         </>
     )
-=======
-
-function Student_SignUp() {
-  return (
-    <div>Student_SignUp</div>
-  )
->>>>>>> 6a7e190a8eaed849954e7482da9377b8e6196ff5
 }
 
 export default Student_SignUp

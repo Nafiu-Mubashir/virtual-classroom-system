@@ -1,0 +1,30 @@
+.card{
+    width: 40% !important;
+    padding: 1em;
+
+}
+span{
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .card{
+        width: 90% !important;
+        padding: 0 !important;
+    }
+   .d-flex{
+        flex-direction: column;
+        margin: 0px;
+    }
+    .wi{
+        width: 100% !important;
+    }
+    #you{
+        margin-left: 0px;
+    }
+    .form-group{
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+    
+}
